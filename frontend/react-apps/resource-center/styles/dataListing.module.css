@@ -1,0 +1,39 @@
+.listing{ 
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+}
+.listing .card{ 
+    border: .35px solid #757575;
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+    transition: .3s ease;
+}
+.listing .card:hover{ 
+    transform: scale(1.03);
+}
+.listing .card .resourceImage{ 
+    height: 250px;
+    border-radius: 10px 10px 0 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.listing .card .meta{ 
+    display: flex;
+    gap: 8px;
+    padding: 20px;
+}
+.listing .card > h3{ 
+    margin: 0;
+    padding: 0 20px;
+}
+.listing .card > p{ 
+    padding: 0 20px;
+    margin-bottom: 70px;
+}
+.listing .card .learnMore{ 
+    position: absolute;
+    bottom: 20px;
+    right: 20px
+}

@@ -1,0 +1,24 @@
+.filters{
+    display: flex;
+    align-items: flex-end;
+    gap: 40px;
+    margin-bottom: 50px;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    padding: 30px;
+    border: solid 1px #757575;
+    border-radius: 10px;
+}
+.filter{ 
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.filter label{ 
+    font-weight: bold;
+}
+.filter input, .filter select{ 
+    width: 200px;
+    height: 40px;
+    padding: 10px;
+}
