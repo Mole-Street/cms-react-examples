@@ -1,0 +1,11 @@
+{
+  "runtime": "nodejs18.x",
+  "version": "1.0",
+  "endpoints": {
+    "~replace_name~": {
+      "method": "~replace_method~",
+      "file": "~replace_name~.js",
+      "secrets": []
+    }
+  }
+}

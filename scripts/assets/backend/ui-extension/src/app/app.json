@@ -1,0 +1,16 @@
+{
+  "name": "~replace_name~-app",
+  "description": "~replace_name~-app",
+  "uid": "",
+  "scopes": [],
+  "public": false,
+  "extensions": {
+    "crm": {
+      "cards": [
+        {
+          "file": "extensions/~replace_name~-card.json"
+        }
+      ]
+    }
+  }
+}

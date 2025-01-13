@@ -1,0 +1,9 @@
+{
+  "appFunctions": {
+    "~replace_name~": {
+      "method": "~replace_method~",
+      "file": "~replace_name~.js",
+      "secrets": []
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "name": "~replace_name~-theme",
+  "version": "0.1.0",
+  "type": "commonjs",
+  "scripts": {
+    "test-webpack": "webpack --config webpack.config.js",
+    "start": "webpack --watch --env ACCOUNT=DEV --env autoupload --config webpack.config.js",
+    "start-prod": "webpack --watch --env ACCOUNT=PROD --env autoupload --config webpack.config.js",
+    "start-fields": "fields transform --src=\"./src/modules\" --watch",
+    "test-start": "webpack --watch --env ACCOUNT=DEV --env autoupload --config updated-webpack.config.js",
+    "lint:styles": "stylelint \"{src,config}/**/*.{css,scss}\" --config ../../../stylelint.config.js",
+    "lint:js-html": "eslint \"{src,config}/**/*.{js,html}\" --no-ignore",
+    "lint": "npm-run-all lint:js-html lint:styles",
+    "format": "prettier --write '**/*.{js,scss,html,json}'"
+  },
+  "author": {
+    "name": "Mole Street",
+    "email": "dev@molestreet.com",
+    "url": "http://www.molestreet.com/"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.21.4",
+    "lozad": "^1.16.0",
+    "webpack-cli": "^4.9.2"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.17.10",
+    "@hubspot/webpack-cms-plugins": "^3.0.12",
+    "@igomoon/hubspot-fields-js": "git+https://github.com/Mole-Street/hubspot-fields-js.git",
+    "babel": "^6.23.0",
+    "babel-loader": "^8.2.5",
+    "copy-webpack-plugin": "^10.2.4",
+    "css-loader": "^6.7.1",
+    "focus-trap": "^7.5.2",
+    "fs": "^0.0.1-security",
+    "glob": "^8.0.1",
+    "js-yaml": "^3.13.1",
+    "mini-css-extract-plugin": "^2.6.0",
+    "path": "^0.12.7",
+    "sass": "^1.51.0",
+    "sass-loader": "^12.6.0",
+    "tabbable": "^6.2.0",
+    "video.js": "^8.5.2",
+    "webpack": "^5.72.0",
+    "webpack-remove-empty-scripts": "^0.8.0"
+  }
+}

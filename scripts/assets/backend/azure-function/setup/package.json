@@ -1,0 +1,14 @@
+{
+  "name": "~replace_name~-azure-function",
+  "version": "0.1.0",
+  "type": "module",
+  "author": {
+    "name": "Mole Street",
+    "email": "dev@molestreet.com",
+    "url": "http://www.molestreet.com/"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "azure-functions-core-tools": "^4.0.6610"
+  }
+}

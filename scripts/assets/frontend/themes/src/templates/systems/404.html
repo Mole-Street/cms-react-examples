@@ -1,0 +1,44 @@
+<!--
+  templateType: error_page
+  isAvailableForNewContent: true
+  label: 404 Error
+-->
+
+{% extends "./../layouts/base.html" %}
+
+{% block body %}
+  <section class="error-page error-page__404">
+    <h1>Page Not Found</h1>
+    <p>It may have been moved, deleted or doesn't exist.</p>
+    <div class="error-page__buttons">
+      <a href="{% if company_domain %}{{ company_domain }}{% else %}/{% endif %}" class="button button--primary"
+        >Back to Home</a
+      >
+    </div>
+    <div class="error-page__background" aria-hidden="true">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="585"
+        height="224"
+        viewBox="0 0 585 224"
+        fill="none"
+      >
+        <path
+          d="M0 187.8V139.2L92.1 7.80001H156.6V136.8H179.7V187.8H156.6V223.8H97.2V187.8H0ZM101.7 74.1L60.3 136.8H101.7V74.1Z"
+          fill="#F2F2F2"
+        />
+        <path
+          d="M203.822 111C203.822 76.6 210.822 49.5 224.822 29.7C238.822 9.9 260.822 0 290.822 0C320.822 0 342.822 9.9 356.822 29.7C371.022 49.5 378.122 76.6 378.122 111C378.122 145.8 371.122 173.1 357.122 192.9C343.122 212.7 321.022 222.6 290.822 222.6C260.622 222.6 238.522 212.7 224.522 192.9C210.722 173.1 203.822 145.8 203.822 111ZM319.922 111C319.922 93 318.022 79.3 314.222 69.9C310.422 60.3 302.622 55.5 290.822 55.5C279.022 55.5 271.222 60.3 267.422 69.9C263.622 79.3 261.722 93 261.722 111C261.722 129.4 263.522 143.4 267.122 153C270.922 162.4 278.822 167.1 290.822 167.1C302.822 167.1 310.622 162.4 314.222 153C318.022 143.4 319.922 129.4 319.922 111Z"
+          fill="#F2F2F2"
+        />
+        <path
+          d="M404.59 187.8V139.2L496.69 7.80001H561.19V136.8H584.29V187.8H561.19V223.8H501.79V187.8H404.59ZM506.29 74.1L464.89 136.8H506.29V74.1Z"
+          fill="#F2F2F2"
+        />
+      </svg>
+    </div>
+  </section>
+
+  {# Additional Modules Here #}
+
+{% endblock body %}

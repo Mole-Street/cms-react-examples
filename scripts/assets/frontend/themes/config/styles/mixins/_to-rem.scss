@@ -1,0 +1,5 @@
+// REM Calculator
+@function toRem($value, $x: 16) {
+  $remValue: calc($value / $x) + rem;
+  @return $remValue;
+}

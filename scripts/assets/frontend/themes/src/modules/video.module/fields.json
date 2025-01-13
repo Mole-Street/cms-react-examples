@@ -1,0 +1,81 @@
+[
+  {
+    "required": false,
+    "locked": false,
+    "help_text": "",
+    "inline_help_text": "Appears on the page with a play icon over it. All videos play in modals.",
+    "name": "video_poster",
+    "label": "Video Poster",
+    "type": "image",
+    "default": {
+      "size_type": "auto",
+      "src": "https://4949049.fs1.hubspotusercontent-na1.net/hubfs/4949049/excelente-vista.jpg",
+      "alt": null,
+      "loading": "disabled"
+    },
+    "responsive": false,
+    "resizable": false,
+    "show_loading": false
+  },
+  {
+    "required": false,
+    "locked": false,
+    "help_text": "",
+    "inline_help_text": "",
+    "name": "video_source",
+    "label": "Video Source",
+    "choices": [
+      ["youtube", "YouTube"],
+      ["hubspot", "HubSpot-hosted Video"],
+      ["vimeo", "Vimeo"]
+    ],
+    "type": "choice",
+    "id": "video_source",
+    "default": "youtube"
+  },
+  {
+    "required": false,
+    "locked": false,
+    "help_text": "",
+    "inline_help_text": "The YouTube video id can be grabbed from the URL when you view any YouTube video. Usually, it's 11 characters, and preceded by \"v=\".",
+    "name": "youtube_id",
+    "label": "YouTube Video ID",
+    "type": "text",
+    "visibility": {
+      "controlling_field": "video_source",
+      "controlling_value_regex": "youtube",
+      "operator": "EQUAL"
+    },
+    "default": "dQw4w9WgXcQ"
+  },
+  {
+    "required": false,
+    "locked": false,
+    "help_text": "",
+    "inline_help_text": "The Vimeo video id can be grabbed from the URL when you view any Vimeo video. Usually, it's 9 characters, and preceded by \"vimeo.com/\".",
+    "name": "vimeo_id",
+    "label": "Vimeo Video ID",
+    "type": "text",
+    "visibility": {
+      "controlling_field": "video_source",
+      "controlling_value_regex": "vimeo",
+      "operator": "EQUAL"
+    },
+    "default": "375468729"
+  },
+  {
+    "required": false,
+    "locked": false,
+    "help_text": "",
+    "inline_help_text": "",
+    "name": "video",
+    "label": "Video",
+    "type": "file",
+    "visibility": {
+      "controlling_field": "video_source",
+      "controlling_value_regex": "hubspot",
+      "operator": "EQUAL"
+    },
+    "default": "https://24480451.fs1.hubspotusercontent-na1.net/hubfs/24480451/movie.mp4"
+  }
+]

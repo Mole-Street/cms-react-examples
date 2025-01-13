@@ -1,0 +1,12 @@
+{
+  "type": "crm-card",
+  "data": {
+    "title": "~replace_name~-app",
+    "uid": "",
+    "location": "",
+    "module": {
+      "file": "~replace_react_name~.jsx"
+    },
+    "objectTypes": [{ "name": "" }]
+  }
+}

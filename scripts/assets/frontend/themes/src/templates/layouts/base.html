@@ -1,0 +1,48 @@
+<!--
+  templateType: "none"
+  isAvailableForNewContent: false
+-->
+
+<!DOCTYPE html>
+<html lang="{{ html_lang }}" {{ html_lang_dir }}>
+  <head>
+    <meta charset="utf-8" />
+    <title>{{ page_meta.html_title }}</title>
+    {% if site_settings.favicon_src %}
+      <link rel="shortcut icon" href="{{ site_settings.favicon_src }}" />
+    {% endif %}
+    <meta name="description" content="{{ page_meta.meta_description }}" />
+    {{ require_css(get_asset_url("../../css/project.css")) }}
+    {{ require_js(get_asset_url("../../js/main.js"), {
+  position: "footer",
+  defer: true
+}) }}
+    {{ standard_header_includes }}
+    {% if content.language == "en" %}
+      <link rel="alternate" hreflang="x-default" href="{{ content.absolute_url }}" />
+    {% elif content.translated_content %}
+      <link rel="alternate" hreflang="x-default" href="{{ content.translated_content.en.absolute_url }}" />
+    {% endif %}
+    {% if not content.featured_image %}
+      {#<meta property="og:image" content="https://www.yourdomain.com/hubfs/yourimage.jpg" />#}
+    {% endif %}
+  </head>
+  <body
+    class="{{ builtin_body_classes }} {% if (content.widgets.opaque_navigation.body.value or opaque_navigation or content.widgets.nav_options.body.opaque_navigation) %} header-white {% else %} not-opaque {% endif %} {{ "blog-home " if template_meta.label is string_containing("blog-index") }} {% if request.full_url is string_containing("/author/") %} author-listing {% endif %} {{ bodyClasses }}"
+  >
+    <a href="#skip-link-destination" class="skip-link">Skip to content</a>
+
+    {% block header %}
+    {% endblock header %}
+
+    <main id="skip-link-destination" class="body-container-wrapper">
+      {% block body %}
+      {% endblock body %}
+    </main>
+
+    {% block footer %}
+    {% endblock footer %}
+
+    {{ standard_footer_includes }}
+  </body>
+</html>

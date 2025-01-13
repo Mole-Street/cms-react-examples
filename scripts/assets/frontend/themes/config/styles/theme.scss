@@ -1,0 +1,47 @@
+@import './base/colors.scss';
+@import './base/fonts.scss';
+
+// Widths
+$containerWidth: 1440px;
+$contentWidth: 1280px;
+$contentMiddle: 800px;
+$tabletPadding: 48px;
+$mobilePadding: 24px;
+
+// Breakpoints
+$breakpointMobile: 500px;
+$breakpointTablet: 768px;
+$breakpointDesktop: 1440px;
+
+// Fonts
+$fontWeightRegular: 400;
+$fontWeightMedium: 500;
+$fontWeightBold: 600;
+$fontHeading: 'Helvetica';
+$fontBody: 'Helvetica';
+$fontColorDark: $black;
+$fontColorMedium: $grey;
+$fontColorLight: $white;
+$fontColorAccent: $darkGreen;
+$fontSizeBase: 16px;
+
+// Colors - Primary
+$colorPrimary1: $darkGreen;
+$colorPrimary2: $mint;
+$colorPrimary3: $harvestGold;
+$colorPrimary4: $engineRed;
+$colorPrimary5: $babyPink;
+
+// Backgrounds
+$backgroundDark: $black;
+$backgroundLight: $lightGrey;
+$backgroundGrey: $grey;
+$backgroundWhite: $white;
+
+// Gradients
+$gradient1: $gradientDark;
+
+// Misc
+$defaultBorderRadius: 10px;
+$boxShadowDefault: 5px 5px 25px 0px rgb(0 0 0 / 15%);
+$borderDefault: 1px solid $black;

@@ -1,0 +1,45 @@
+@mixin loadBodyFonts {
+  @font-face {
+    font-family: Barlow;
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('https://2603837.fs1.hubspotusercontent-na1.net/hubfs/2603837/2023%20Website/Fonts/Barlow-Regular.ttf')
+      format('truetype');
+  }
+  @font-face {
+    font-family: Barlow;
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('https://2603837.fs1.hubspotusercontent-na1.net/hubfs/2603837/2023%20Website/Fonts/Barlow-Bold.ttf')
+      format('truetype');
+  }
+}
+
+@mixin loadHeadingFonts {
+  @font-face {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: url('https://2603837.fs1.hubspotusercontent-na1.net/hubfs/2603837/2023%20Website/Fonts/DMSans_18pt-Light.ttf')
+      format('truetype');
+  }
+  @font-face {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('https://2603837.fs1.hubspotusercontent-na1.net/hubfs/2603837/2023%20Website/Fonts/DMSans_18pt-Regular.ttf')
+      format('truetype');
+  }
+  @font-face {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('https://2603837.fs1.hubspotusercontent-na1.net/hubfs/2603837/2023%20Website/Fonts/DMSans_24pt-Bold.ttf')
+      format('truetype');
+  }
+}

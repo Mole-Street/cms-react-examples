@@ -1,0 +1,250 @@
+{#
+  Popup Macro - intakes a unique ID (per popup), and the content to display in the popup.
+    - Add this macro to a module to generate the popup modal.
+    - To your button trigger, add "data-modal-id=" and set this to the same unique ID.
+    - write your content as a block of HTML, then assign it to a variable to pass it in.
+    - Note that it may be required to turn this macro base into a separate macro base depending on the content. See Video popup.
+
+  Example:
+
+  <button data-modal-id="cool-example">I trigger the popup</button>
+
+  {% set content = '
+  <p> This is popup content </p>
+  '%}
+
+  {{ popup("cool-example", content)}}
+#}
+
+{% set content = "" %}
+
+{% macro popup(uniqueID, content) %}
+  <div class="popup__modal" id="{{ uniqueID }}">
+    <div class="popup__modal--inner">
+      <button class="popup__modal--close" aria-label="Close Modal">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="8"
+          height="8"
+          fill="none"
+          aria-hidden="true"
+        >
+          <path
+            fill="#ffffff"
+            d="M6.609.539 4.007 3.14 1.406.54l-.868.867L3.14 4.007.538 6.61l.868.867 2.6-2.601L6.61 7.476l.867-.867-2.601-2.602 2.601-2.601-.867-.867Z"
+          />
+        </svg>
+      </button>
+
+      {{ content }}
+    </div>
+  </div>
+{% endmacro %}
+
+{#
+  Video Popup Macro - intakes a unique ID (per popup), and the ID of a Youtube Video to play.
+    - Add this macro to a module to generate the popup modal.
+    - To your button trigger, add "data-modal-id=" and set this to the same unique ID.
+
+  Example:
+
+  <button data-modal-id="cool-example">I trigger the popup</button>
+
+  {{ videoPopup("cool-example", "someYouTubeID")}}
+#}
+
+{% macro videoPopup(uniqueID, videoType, video) %}
+
+  {{ require_js("https://4972039.fs1.hubspotusercontent-na1.net/hubfs/4972039/video.min.js", {
+    position: "head",
+    defer: false
+  }) }}
+
+  <div class="popup popup__modal popup--video" id="{{ uniqueID }}">
+    <div class="popup__modal--inner">
+      <button class="popup__modal--close" aria-label="Close Modal">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="8"
+          height="8"
+          fill="none"
+          aria-hidden="true"
+        >
+          <path
+            fill="#ffffff"
+            d="M6.609.539 4.007 3.14 1.406.54l-.868.867L3.14 4.007.538 6.61l.868.867 2.6-2.601L6.61 7.476l.867-.867-2.601-2.602 2.601-2.601-.867-.867Z"
+          />
+        </svg>
+      </button>
+
+      {% if videoType == "youtube" %}
+
+        <video
+          id="{{ "video" ~ uniqueID }}"
+          class="video-js vjs-default-skin"
+          controls
+          width="1084"
+          height="592"
+          data-setup='{ "techOrder": ["youtube"], "sources": [{ "type": "video/youtube", "src": "https://www.youtube.com/watch?v={{ video }}"}], "youtube": { "modestbranding": 1, "ytControls": 0, "color": "white" } }'
+        ></video>
+
+        {{ require_js("https://4972039.fs1.hubspotusercontent-na1.net/hubfs/4972039/Youtube.min.js", {
+      position: "head",
+      defer: false
+    }) }}
+
+      {% elif videoType == "vimeo" %}
+
+        <video
+          id="{{ "video" ~ uniqueID }}"
+          class="video-js vjs-default-skin"
+          controls
+          width="1084"
+          height="592"
+          data-setup='{ "techOrder": ["vimeo"], "sources": [{ "type": "video/vimeo", "src": "https://vimeo.com/{{ video }}"}], "playbackRates" : [0.75, 1.0, 1.25], "playbackRateButton": true }'
+        ></video>
+
+        {{ require_js(https://4972039.fs1.hubspotusercontent-na1.net/hubfs/4972039/videojs-vimeo.umd.js", {
+      position: "head",
+      defer: false
+    }) }}
+
+      {% elif videoType == "hubspot" %}
+        <video
+          id="{{ "video" ~ uniqueID }}"
+          class="video-js vjs-default-skin"
+          controls
+          width="1084"
+          height="592"
+          data-setup='{ "sources": [{ "type": "video/mp4", "src": "{{ video }}"}] }'
+        ></video>
+      {% endif %}
+    </div>
+  </div>
+{% endmacro %}
+
+{# Video Macro - generates a square video with a play icon on the page. When you press the play button, the video plays in a modal.
+    - Designed to be used with the video.js field partial. Intakes those fields (or just module, if you're not using the fields in a group), and the unique name of the module.
+    - Also utilizes the videoPopup macro.
+
+  Example:
+  {{video(module.video, uniqueValue)}}
+
+#}
+
+{% macro video(fields, uniqueValue) %}
+  <section class="video">
+    <div
+      class="video__poster"
+      aria-label="Play video"
+      style="background-image: url('{{ fields.video_poster.src }}')"
+    >
+      <button class="video__play" aria-label="Play Video" data-modal-id="{{ uniqueValue }}">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="76"
+          height="76"
+          fill="none"
+          aria-hidden="true"
+        >
+          <circle cx="38" cy="38" r="38" fill="#000" fill-opacity=".42" />
+          <g filter="url(#a)">
+            <path
+              fill="#fff"
+              d="M56.292 37.53a1 1 0 0 1 0 1.732L30.198 54.327a1 1 0 0 1-1.5-.866v-30.13a1 1 0 0 1 1.5-.866L56.292 37.53Z"
+            />
+          </g>
+          <defs>
+            <filter
+              id="a"
+              width="40.094"
+              height="44.133"
+              x="22.698"
+              y="20.329"
+              color-interpolation-filters="sRGB"
+              filterUnits="userSpaceOnUse"
+            >
+              <feFlood flood-opacity="0" result="BackgroundImageFix" />
+              <feColorMatrix
+                in="SourceAlpha"
+                result="hardAlpha"
+                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+              />
+              <feOffset dy="4" />
+              <feGaussianBlur stdDeviation="3" />
+              <feComposite in2="hardAlpha" operator="out" />
+              <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0" />
+              <feBlend
+                in2="BackgroundImageFix"
+                result="effect1_dropShadow_344_1755"
+              />
+              <feBlend
+                in="SourceGraphic"
+                in2="effect1_dropShadow_344_1755"
+                result="shape"
+              />
+            </filter>
+          </defs>
+        </svg>
+      </button>
+    </div>
+  </section>
+  {% if fields.video_source == "youtube" %}
+    {{ videoPopup(uniqueValue, fields.video_source, fields.youtube_id) }}
+  {% elif fields.video_source == "hubspot" %}
+    {{ videoPopup(uniqueValue, fields.video_source, fields.video) }}
+  {% elif fields.video_source == "vimeo" %}
+    {{ videoPopup(uniqueValue, fields.video_source, fields.vimeo_id) }}
+  {% endif %}
+{% endmacro %}
+
+{# CTA Macro 
+    - Designed to be used with the cta.js field partial. Intakes those fields (or just module, if you're not using the fields in a group), and a class for additional control.
+    - Creates options to use a link or a HubSpot CTA in the same place, with associated style options.
+
+  Example:
+  <div>
+  {{generateCTA(module.cta_button, 'custom-class')}}
+  </div>
+
+#}
+
+{% macro generateCTA(cta_button, className) %}
+  {% if cta_button.button_label and cta_button.cta_type == "link" %}
+    <a
+      class="{{ className }} cta-{{ cta_button.button_style }} cta-{{ cta_button.button_style }}__{{ cta_button.button_color_scheme }}"
+      href="{{ cta_button.link.url.href }}"
+      {% if cta_button.link.open_in_new_tab %}target="_blank"
+      {% endif %}
+      {% if cta_button.link.rel %}rel="{{ cta_button.link.rel }}"
+      {% endif %}
+    >
+      {{ cta_button.button_label }}
+    </a>
+  {% elif cta_button.cta_type == "hubspot-cta" %}
+    <div class="{{ className }} cta-{{ cta_button.button_style }} cta-{{ cta_button.button_style }}__{{ cta_button.button_color_scheme }}">
+      {{ cta(cta_button.cta) }}
+    </div>
+  {% endif %}
+{% endmacro %}
+
+{#
+  Short Link macro. Makes using link fields a better experience.
+    - Intakes an entire link field
+    - use directly in a tag
+
+  Example:
+
+  <a macro goes here ></a>
+#}
+
+{%- macro shortLink(link_field) -%}
+  href="{{ link_field.url.type == "EMAIL_ADDRESS" ? "mailto:" ~ link_field.url.href : link_field.url.href }}"
+  {%- if link_field.open_in_new_tab -%}
+    target="_blank"
+  {%- endif -%}
+  {%- if link_field.rel -%}
+    rel="{{ link_field.rel }}"
+  {%- endif -%}
+
+{%- endmacro -%}

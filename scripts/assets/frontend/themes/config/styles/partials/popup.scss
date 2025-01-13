@@ -1,0 +1,102 @@
+// Recommended use - import into your base project scss file.
+
+// Classes - do not change
+$_modalOpenClass: 'modal-open';
+$_bodyModalOpenClass: 'body-modal-open';
+$_modalContainerClass: 'modals-container';
+
+// Style variables used in this file - update to reflect your project variables
+$_modalBackground: $backgroundWhite;
+$_modalBorderRadius: $defaultBorderRadius;
+$_modalMaxWidth: $contentWidth;
+$_modalOpenPageOverlay: rgb(0 0 0 / 50%);
+$_closeButtonBackground: $colorPrimary1;
+$_closeButtonColor: $fontColorLight;
+$_closeButtonBoxShadow: $boxShadowDefault;
+
+.popup__modal {
+  max-height: none;
+  display: none;
+  z-index: 100;
+  pointer-events: auto;
+  overflow: hidden scroll;
+
+  &.#{$_modalOpenClass} {
+    display: block;
+    pointer-events: auto;
+    -webkit-overflow-scrolling: touch;
+    max-height: none;
+    overflow: visible;
+  }
+
+  &--inner {
+    margin: 0 auto;
+    max-width: $_modalMaxWidth;
+    width: calc(100% - 20px);
+    left: 10px;
+    right: 10px;
+    top: 100px;
+    background: $_modalBackground;
+    border-radius: $_modalBorderRadius;
+    padding: toRem(20);
+    position: relative;
+
+    @include breakpointAbove($breakpointTablet) {
+      padding: toRem(50);
+    }
+
+    @include breakpointAbove($breakpointDesktop) {
+      padding: toRem(100);
+    }
+  }
+
+  &--close {
+    background-color: $_closeButtonBackground;
+    color: $_closeButtonColor;
+    width: toRem(45);
+    height: toRem(45);
+    box-shadow: $_closeButtonBoxShadow;
+    display: block;
+    border-radius: 100%;
+    font-size: toRem(12.5);
+    position: absolute;
+    right: toRem(-22.5);
+    top: toRem(-22.5);
+    cursor: pointer;
+    padding: 0;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.#{$_modalContainerClass} {
+  display: none;
+
+  &.#{$_modalOpenClass} {
+    pointer-events: auto;
+    -webkit-overflow-scrolling: touch;
+    overflow: hidden scroll;
+    display: block;
+    position: fixed;
+    inset: 0;
+    background-color: $_modalOpenPageOverlay;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    z-index: 100000001;
+  }
+}
+
+html.#{$_bodyModalOpenClass} {
+  pointer-events: none;
+  overflow: hidden;
+  position: relative;
+
+  body {
+    pointer-events: none;
+    overflow: hidden;
+    position: relative;
+  }
+}

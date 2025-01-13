@@ -1,0 +1,14 @@
+{
+  "name": "~replace_name~-lambda",
+  "version": "0.1.0",
+  "type": "module",
+  "author": {
+    "name": "Mole Street",
+    "email": "dev@molestreet.com",
+    "url": "http://www.molestreet.com/"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.1000.0"
+  }
+}

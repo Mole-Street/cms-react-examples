@@ -1,0 +1,258 @@
+@import '../theme.scss';
+@import './to-rem';
+
+// Headings
+@mixin H1 {
+  font-family: $fontHeading;
+  font-size: 48px;
+  font-weight: $fontWeightRegular;
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+  margin-top: 0;
+  margin-bottom: 24px;
+
+  @include breakpointAbove($breakpointMobile) {
+    font-size: 64px;
+  }
+
+  @include breakpointAbove($breakpointTablet) {
+    font-size: 100px;
+  }
+}
+
+@mixin H2 {
+  font-family: $fontHeading;
+  font-size: 36px;
+  font-weight: $fontWeightMedium;
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+  margin-top: 0;
+  margin-bottom: 24px;
+
+  @include breakpointAbove($breakpointTablet) {
+    font-size: 48px;
+  }
+}
+
+@mixin H3 {
+  font-family: $fontHeading;
+  font-size: 24px;
+  font-weight: $fontWeightMedium;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  margin-top: 0;
+  margin-bottom: 16px;
+
+  @include breakpointAbove($breakpointTablet) {
+    font-size: 32px;
+  }
+}
+
+@mixin H4 {
+  font-family: $fontHeading;
+  font-size: 20px;
+  font-weight: $fontWeightMedium;
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+  margin-top: 0;
+  margin-bottom: 16px;
+
+  @include breakpointAbove($breakpointTablet) {
+    font-size: 30px;
+  }
+}
+
+@mixin H5 {
+  font-family: $fontHeading;
+  font-size: 18px;
+  font-weight: $fontWeightMedium;
+  line-height: 26.4px;
+  letter-spacing: 0.01em;
+  margin-top: 0;
+  margin-bottom: 16px;
+
+  @include breakpointAbove($breakpointTablet) {
+    font-size: 24px;
+  }
+}
+
+@mixin H6 {
+  font-family: $fontHeading;
+  font-size: 16px;
+  font-weight: $fontWeightMedium;
+  line-height: 19.8px;
+  letter-spacing: 0.01em;
+  margin-top: 0;
+  margin-bottom: 8px;
+
+  @include breakpointAbove($breakpointTablet) {
+    font-size: 18px;
+  }
+}
+
+@mixin H7 {
+  font-family: $fontHeading;
+  font-size: 40px;
+  font-weight: $fontWeightRegular;
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+  margin-top: 0;
+  margin-bottom: 24px;
+
+  @include breakpointAbove($breakpointMobile) {
+    font-size: 64px;
+  }
+
+  @include breakpointAbove($breakpointTablet) {
+    font-size: 80px;
+  }
+}
+
+// Breakpoints
+@mixin breakpointAbove($breakpoint) {
+  @media (min-width: ($breakpoint)) {
+    @content;
+  }
+}
+
+@mixin breakpointBelow($breakpoint) {
+  @media (max-width: ($breakpoint - 1px)) {
+    @content;
+  }
+}
+
+@mixin eyebrow {
+  font-size: toRem(16);
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.08px;
+  text-transform: uppercase;
+  color: $fontColorAccent;
+}
+
+// Body Copy
+@mixin bodyCopy {
+  font-family: $fontBody;
+  font-weight: $fontWeightRegular;
+  line-height: 1.83;
+  font-size: $fontSizeBase;
+}
+
+@mixin bodyCopySmall {
+  font-family: $fontBody;
+  font-size: toRem(14);
+  line-height: 1.57;
+}
+
+// Blockquotes
+@mixin blockquote {
+  @include H2;
+}
+
+// CTAs
+@mixin ctaPrimary {
+  border-radius: $defaultBorderRadius;
+  padding: toRem(20) toRem(32);
+  font-weight: $fontWeightBold;
+  color: $fontColorLight;
+  font-size: toRem(14);
+  line-height: 1;
+  transition: background 0.25s ease-in-out, border 0.25s ease-in-out;
+  box-shadow: $boxShadowDefault;
+  background: $colorPrimary1;
+  text-transform: uppercase;
+  min-width: toRem(235);
+  width: 100%;
+  text-align: center;
+  border: 0;
+
+  &:hover {
+    background: $colorPrimary3;
+  }
+
+  @include breakpointAbove($breakpointMobile) {
+    width: auto;
+  }
+}
+
+@mixin ctaSecondary {
+  border-radius: $defaultBorderRadius;
+  padding: toRem(20) toRem(32);
+  font-weight: $fontWeightBold;
+  color: $colorPrimary1;
+  line-height: 1;
+  font-size: toRem(14);
+  transition: background 0.25s ease-in-out, color 0.25s ease-in-out;
+  background: $backgroundWhite;
+  box-shadow: $boxShadowDefault;
+  text-transform: uppercase;
+  width: 100%;
+  text-align: center;
+  border: 0;
+
+  &:hover {
+    background: $colorPrimary3;
+    color: $fontColorLight;
+  }
+
+  @include breakpointAbove($breakpointMobile) {
+    width: auto;
+  }
+}
+
+@mixin bounceArrowAnimation {
+  @keyframes bounce-arrow-animation {
+    0% {
+      left: 8px;
+    }
+
+    100% {
+      left: 12px;
+    }
+  }
+}
+
+@mixin ctaTertiary {
+  padding: toRem(20) toRem(18) toRem(20) toRem(0);
+  font-weight: $fontWeightBold;
+  font-size: toRem(14);
+  transition: text-decoration 0.25s ease-in-out;
+  color: $colorPrimary1;
+  display: inline-flex;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+  width: 100%;
+  align-items: flex-start;
+
+  &::after {
+    content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cg clip-path='url(%23clip0_265_699)'%3E%3Cpath d='M23.12 9.90999L19.25 5.99999C19.157 5.90626 19.0464 5.83187 18.9246 5.7811C18.8027 5.73033 18.672 5.70419 18.54 5.70419C18.408 5.70419 18.2773 5.73033 18.1554 5.7811C18.0336 5.83187 17.923 5.90626 17.83 5.99999C17.6437 6.18735 17.5392 6.44081 17.5392 6.70499C17.5392 6.96918 17.6437 7.22263 17.83 7.40999L21.39 11H1C0.734784 11 0.48043 11.1053 0.292893 11.2929C0.105357 11.4804 0 11.7348 0 12H0C0 12.2652 0.105357 12.5196 0.292893 12.7071C0.48043 12.8946 0.734784 13 1 13H21.45L17.83 16.61C17.7363 16.703 17.6619 16.8136 17.6111 16.9354C17.5603 17.0573 17.5342 17.188 17.5342 17.32C17.5342 17.452 17.5603 17.5827 17.6111 17.7046C17.6619 17.8264 17.7363 17.937 17.83 18.03C17.923 18.1237 18.0336 18.1981 18.1554 18.2489C18.2773 18.2997 18.408 18.3258 18.54 18.3258C18.672 18.3258 18.8027 18.2997 18.9246 18.2489C19.0464 18.1981 19.157 18.1237 19.25 18.03L23.12 14.15C23.6818 13.5875 23.9974 12.825 23.9974 12.03C23.9974 11.235 23.6818 10.4725 23.12 9.90999Z' fill='%230074E0'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_265_699'%3E%3Crect width='24' height='24' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
+    position: relative;
+    left: 8px;
+    height: 2em;
+  }
+
+  &:hover {
+    text-decoration: underline;
+
+    &::after {
+      animation: bounceArrowAnimation 0.6s ease-in-out infinite alternate;
+    }
+  }
+
+  @include breakpointAbove($breakpointMobile) {
+    width: auto;
+  }
+}
+
+// Layout
+@mixin center {
+  max-width: $contentWidth;
+  padding: 0 $mobilePadding;
+  margin: 0 auto;
+  @include breakpointAbove($breakpointTablet) {
+    padding: 0 $tabletPadding;
+  }
+  @include breakpointAbove($breakpointDesktop) {
+    padding: 0;
+  }
+}

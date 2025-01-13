@@ -1,0 +1,16 @@
+{
+  "name": "~replace_name~",
+  "version": "0.1.0",
+  "type": "module",
+  "dependencies": {
+    "@hubspot/cms-components": "latest",
+    "react": "^18.1.0"
+  },
+  "devDependencies": {
+    "@hubspot/cms-dev-server": "latest",
+    "jsdom": "^20.0.1"
+  },
+  "scripts": {
+    "start": "hs-cms-dev-server ."
+  }
+}

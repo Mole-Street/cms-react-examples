@@ -1,0 +1,49 @@
+{
+  "name": "monorepo-base",
+  "version": "0.1.0",
+  "description": "",
+  "type": "commonjs",
+  "private": "true",
+  "workspaces": [
+    "frontend/*",
+    "backend/*"
+  ],
+  "scripts": {
+    "lint:styles": "stylelint \"./scripts/assets/frontend/themes/**/*.{css,scss}\" --config ./stylelint.config.js",
+    "lint:js-html": "eslint \"./scripts/assets/frontend/themes/{src,config}/**/*.{js,html}\" --config ./eslint.config.js",
+    "lint:react": "eslint \"./scripts/assets/frontend/react-apps/components/**/*.{jsx,js}\" --config ./eslint.config.js",
+    "lint": "npm-run-all lint:js-html lint:styles",
+    "lint:all": "eslint \"**/*.{js,jsx,html}\" --ignore-pattern \"**/*.config.js\"",
+    "format": "prettier --write '**/*.{js,scss,html,json}'"
+  },
+  "author": {
+    "name": "Mole Street",
+    "email": "dev@molestreet.com",
+    "url": "http://www.molestreet.com/"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.25.9",
+    "@hubspot/cli": "^3.0.12",
+    "@hubspot/prettier-plugin-hubl": "^0.2.5",
+    "eslint": "^8.57.1",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^9.1.0",
+    "@eslint/js": "^9.17.0",
+    "eslint-plugin-html": "^8.1.2",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.37.3",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "globals": "^15.14.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.8.8",
+    "stylelint": "^16.12.0",
+    "stylelint-config-standard-scss": "^14.0.0"
+  },
+  "dependencies": {
+    "@hubspot/api-client": "^12.0.1",
+    "axios": "^1.7.9"
+  }
+}
