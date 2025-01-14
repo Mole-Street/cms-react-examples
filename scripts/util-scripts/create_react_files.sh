@@ -57,6 +57,7 @@ create_react_files() {
     # Copy assets to scaffold new CMS React project
     cp -r "$assets_dir/react-apps/components/" "$app_dir/components"
     cp -r "$assets_dir/react-apps/setup/" "$app_dir/"
+    cp -r "$assets_dir/react-apps/styles/" "$app_dir/styles"
     cp "$shared_assets_dir/.hsignore" "$project_dir/.hsignore"
     cp "$assets_dir/react-apps/hsproject.json" "$project_dir/hsproject.json"
 
