@@ -4,6 +4,7 @@ import Header from '../partials/header.jsx'
 import Search from '../partials/search.jsx'
 import Select from '../partials/select.jsx'
 import styles from '../../styles/filters.module.css'
+import axios from 'axios'
 
 const Listing=({ dataQueryResult, fieldValues })=>{ 
   const {sample_field_group: {text:sampleFieldText, subtext:sampleFieldSubtext}, sample_filters }=fieldValues
